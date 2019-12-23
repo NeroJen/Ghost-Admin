@@ -292,7 +292,10 @@
     margin: 0;
     padding: 0;
 }
-
+.gh-nav-list .menu {
+    display: flex;
+    align-items: center;
+}
 .gh-nav-list .gh-nav-list-h {
     overflow: hidden;
     padding: 10px 20px;
@@ -306,7 +309,7 @@
     font-weight: 500;
 }
 
-.gh-nav-list a {
+.gh-nav-list a, .gh-nav-list .gh-nav-list-item {
     display: flex;
     align-items: center;
     padding: 6px 32px;
@@ -316,7 +319,25 @@
     font-weight: 400;
     border-radius: 5px;
 }
-
+.gh-nav-list .gh-nav-list-item {
+    flex-direction: column;
+    align-items: flex-start;
+}
+.gh-nav-list-item {
+    cursor: pointer;
+    padding: 0 !important;
+}
+.gh-nav-list-item .menu {
+    padding: 6px 32px;
+    width: 100%;
+}
+.gh-nav-list-item .submenu {
+    width: 100%;
+    transition: all 0.5s;
+}
+.submenu li {
+    list-style-type: none;
+}
 .gh-nav-list .active {
     position: relative;
     color: var(--active-menu-color);

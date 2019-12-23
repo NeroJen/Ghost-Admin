@@ -6,6 +6,7 @@ import {and, equal, match} from '@ember/object/computed';
 import {getOwner} from '@ember/application';
 import {htmlSafe} from '@ember/string';
 import {inject as service} from '@ember/service';
+import {set} from '@ember/object';
 
 export default Component.extend(ShortcutsMixin, {
     config: service(),
@@ -22,10 +23,9 @@ export default Component.extend(ShortcutsMixin, {
     iconStyle: '',
 
     showSearchModal: false,
-
+    submenu: null,
     shortcuts: null,
-
-    isIntegrationRoute: match('router.currentRouteName', /^settings\.integration/),
+    isIntegrationRoute: match('router.currentRouteName', /^settings\. integration/),
     isSettingsRoute: match('router.currentRouteName', /^settings/),
 
     // HACK: {{link-to}} should be doing this automatically but there appears to
@@ -35,7 +35,6 @@ export default Component.extend(ShortcutsMixin, {
     showMenuExtension: and('config.clientExtensions.menu', 'session.user.isOwner'),
     showDropdownExtension: and('config.clientExtensions.dropdown', 'session.user.isOwner'),
     showScriptExtension: and('config.clientExtensions.script', 'session.user.isOwner'),
-
     init() {
         this._super(...arguments);
 
@@ -43,6 +42,12 @@ export default Component.extend(ShortcutsMixin, {
 
         shortcuts[`${ctrlOrCmd}+k`] = {action: 'toggleSearchModal'};
         this.shortcuts = shortcuts;
+        this.submenu = {
+            homeSubmenu: false,
+            fahSubmenu: false,
+            wxSubmenu: false,
+            fabSubmenu: false
+        };
     },
 
     // the menu has a rendering issue (#8307) when the the world is reloaded
@@ -74,6 +79,17 @@ export default Component.extend(ShortcutsMixin, {
         },
         toggleSearchModal() {
             this.toggleProperty('showSearchModal');
+        },
+        toggleSubmenu(value) {
+            if (this.submenu[value]) {
+                set(this.submenu, value, false);
+                return;
+            }
+            Object.keys(this.submenu).forEach((val) => {
+                set(this.submenu, val, false);
+            });
+            set(this.submenu, value, true);
+            console.log(this.router);
         }
     },
 

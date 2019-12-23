@@ -30,6 +30,113 @@
         </ul>
         <ul class="gh-nav-list gh-nav-manage">
             <li class="gh-nav-list-h">Manage</li>
+            <li class="gh-nav-list-item relative">
+                <div class="menu" onclick={{action "toggleSubmenu" "homeSubmenu"}}>
+                    {{svg-jar "house"}}
+                    官网
+                </div>
+                {{#if this.submenu.homeSubmenu}}
+                    <div class="submenu">
+                        <ul>
+                            <li>
+                                {{#if (eq this.router.currentRouteName "wxposts")}}
+                                    {{#link-to "posts" (query-params type=null author=null tag=null order=null) classNames="active" data-test-nav="posts"}}{{svg-jar "content"}}Posts{{/link-to}}
+                                {{else}}
+                                    {{#link-to "posts" data-test-nav="posts"}}{{svg-jar "content"}}Posts{{/link-to}}
+                                {{/if}}
+                            </li>
+                            <li>
+                                {{!-- clicking the Content link whilst on the content screen should reset the filter --}}
+                                {{#if (eq this.router.currentRouteName "wxpages")}}
+                                    {{#link-to "pages" (query-params type=null author=null tag=null order=null) classNames="active" data-test-nav="pages"}}{{svg-jar "page"}}Pages{{/link-to}}
+                                {{else}}
+                                    {{#link-to "pages" data-test-nav="pages"}}{{svg-jar "page"}}Pages{{/link-to}}
+                                {{/if}}
+                            </li>
+                        </ul>
+                    </div>
+                {{/if}}            </li>
+            <li class="gh-nav-list-item relative">
+                <div class="menu" onclick={{action "toggleSubmenu" "fahSubmenu"}}>
+                    <svg t="1577073433206" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6601" width="200" height="200"><path d="M754.4 764.6h-41.6c-11 0-20-9-20-20s9-20 20-20h19.4v-0.2l21.2 0.2h0.9c121.2 0 219.8-98.6 219.8-219.8S875.5 285 754.3 285h-1.7l-15.3 0.1-4.1-14.7C704.2 166.5 608.5 94 500.5 94c-123.4 0-226.7 92.4-240.2 214.8l-1.9 17.3-17.4 0.5c-108.1 3.4-192.7 90.8-192.7 199 0 108.8 89 198.1 198.4 199h65.5c11 0 20 9 20 20s-9 20-20 20h-66.7c-63.2-0.7-122.5-25.8-167.3-70.6C33.1 648.8 8.3 589 8.3 525.6c0-62.5 24-121.7 67.6-166.5 39.5-40.7 91.2-65.6 147.1-71.3 10.7-62 41.9-118.8 89.1-161.4C363.8 79.7 430.8 54 500.5 54c62.7 0 122 20.2 171.6 58.3 44 33.9 77.4 80.6 95.2 132.9 64.5 3.1 124.8 29.8 170.8 75.8 49.1 49.1 76.1 114.3 76.1 183.7s-27 134.7-76.1 183.7C893.3 733.3 835 759.7 772.3 764v0.6h-17.9z" fill="#3F3B3A" p-id="6602"></path><path d="M491.3 464.2h40v360h-40z" fill="#3F3B3A" p-id="6603"></path><path d="M497.2 421.9l-99 99c-7.8 7.8-7.8 20.5 0 28.3 7.8 7.8 20.5 7.8 28.3 0l99-99c7.8-7.8 7.8-20.5 0-28.3-7.9-7.9-20.5-7.9-28.3 0z" fill="#3F3B3A" p-id="6604"></path><path d="M596.1 549.1l-99-99c-7.8-7.8-7.8-20.5 0-28.3 7.8-7.8 20.5-7.8 28.3 0l99 99c7.8 7.8 7.8 20.5 0 28.3-7.8 7.8-20.5 7.8-28.3 0z" fill="#3F3B3A" p-id="6605"></path></svg>
+                    费安好上传页
+                </div>
+                {{#if this.submenu.fahSubmenu}}
+                    <div class="submenu">
+                        <ul>
+                            <li>
+                                {{#if (eq this.router.currentRouteName "fahposts")}}
+                                    {{#link-to "posts" (query-params type=null author=null tag=null order=null) classNames="active" data-test-nav="posts"}}{{svg-jar "content"}}Posts{{/link-to}}
+                                {{else}}
+                                    {{#link-to "posts" data-test-nav="posts"}}{{svg-jar "content"}}Posts{{/link-to}}
+                                {{/if}}
+                            </li>
+                            <li>
+                                {{!-- clicking the Content link whilst on the content screen should reset the filter --}}
+                                {{#if (eq this.router.currentRouteName "fahpages")}}
+                                    {{#link-to "pages" (query-params type=null author=null tag=null order=null) classNames="active" data-test-nav="pages"}}{{svg-jar "page"}}Pages{{/link-to}}
+                                {{else}}
+                                    {{#link-to "pages" data-test-nav="pages"}}{{svg-jar "page"}}Pages{{/link-to}}
+                                {{/if}}
+                            </li>
+                        </ul>
+                    </div>
+                {{/if}}
+            </li>
+            <li class="gh-nav-list-item relative">
+                <div class="menu" onclick={{action "toggleSubmenu" "wxSubmenu"}}>
+                    <svg t="1577078007644" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4596" width="200" height="200"><path d="M816.551274 248.167103C697.80273 131.500986 553.294498 97.66946 394.437467 140.52757 114.716718 215.994356 28.163433 506.98887 169.479973 696.646394c6.853082 9.198499 8.147564 26.164916 5.545296 38.09769-7.601118 34.868135-18.714224 68.958558-28.000728 103.474676-4.965082 18.455327-7.90504 37.21253 8.632611 52.019771 17.777899 15.921621 36.82572 12.654204 56.258305 2.777253 31.879058-16.200984 64.335261-31.314193 95.763041-48.336892 20.469194-11.086499 38.847773-11.658528 61.942771-5.240351 46.063105 12.799514 93.717452 19.872606 117.992321 24.74866 144.317896-2.603291 249.610988-41.736567 333.958024-129.489166C955.8826 594.966597 954.903296 384.090818 816.551274 248.167103zM763.498988 681.878039C658.864906 785.728268 531.49603 810.562886 393.782551 764.371868c-45.408189-15.229866-82.686211-19.207457-122.088616 7.493671-3.576455 2.423189-8.448416 2.934842-26.51284 8.852622 36.271088-62.917982 9.41851-102.273315-21.181415-146.894581-67.886133-98.989525-54.03773-226.624461 26.78197-318.740438 132.026966-150.480246 390.603139-150.382009 522.634198 0.196475C869.144096 424.455131 867.098507 579.054185 763.498988 681.878039zM640.32976 377.432165c-26.245757-0.961908-47.457872 18.594497-48.955992 45.13906-1.532913 27.1565 16.636912 48.230468 43.304272 50.227961 26.571169 1.989307 48.850591-16.263405 51.568493-42.247196C689.112814 403.14478 667.75846 378.439098 640.32976 377.432165zM385.221572 377.38714c-27.757181 0.205685-48.88743 23.684422-46.821375 52.023864 1.940189 26.610054 23.154349 44.910862 50.212612 43.317575 26.505677-1.560542 46.149063-22.886243 45.152363-49.02046C432.798147 398.345474 410.636405 377.198851 385.221572 377.38714z" p-id="4597"></path></svg>
+                    费安好微信端
+                </div>
+                {{#if this.submenu.wxSubmenu}}
+                <div class="submenu">
+                    <ul>
+                        <li>
+                            {{#if (eq this.router.currentRouteName "wxposts")}}
+                                {{#link-to "posts" (query-params type=null author=null tag=null order=null) classNames="active" data-test-nav="posts"}}{{svg-jar "content"}}Posts{{/link-to}}
+                            {{else}}
+                                {{#link-to "posts" data-test-nav="posts"}}{{svg-jar "content"}}Posts{{/link-to}}
+                            {{/if}}
+                        </li>
+                        <li>
+                            {{!-- clicking the Content link whilst on the content screen should reset the filter --}}
+                            {{#if (eq this.router.currentRouteName "wxpages")}}
+                                {{#link-to "pages" (query-params type=null author=null tag=null order=null) classNames="active" data-test-nav="pages"}}{{svg-jar "page"}}Pages{{/link-to}}
+                            {{else}}
+                                {{#link-to "pages" data-test-nav="pages"}}{{svg-jar "page"}}Pages{{/link-to}}
+                            {{/if}}
+                        </li>
+                    </ul>
+                </div>
+                {{/if}}
+            </li>
+            <li class="gh-nav-list-item relative">
+                <div class="menu" onclick={{action "toggleSubmenu" "fabSubmenu"}}>
+                    <svg t="1577073394116" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5070" width="200" height="200"><path d="M279.978111 518.633071l-8.28878-24.202215c78.989005-27.052123 144.615679-74.218352 195.128119-140.234905 0.163729-104.328114-6.197142-202.768123-18.911722-292.670689l25.330922-3.582595c13.059434 92.335988 19.503193 193.47548 19.153222 300.607452l-0.014326 4.241604-2.544963 3.393283C435.848111 438.139805 365.244077 489.430982 279.978111 518.633071z" p-id="5071"></path><path d="M274.690688 604.474135l-7.871271-24.341385c86.869486-28.093848 166.472476-74.065879 236.595556-136.639007l17.032932 19.087731C447.651948 527.538905 364.967784 575.278185 274.690688 604.474135z" p-id="5072"></path><path d="M146.093844 977.095737c-0.002047 0-0.005117 0-0.007163 0-22.607904-0.002047-62.049195-10.648524-72.459289-81.827657-23.546276-118.629841-21.330818-232.574986 6.584975-338.682629 27.933189-106.175181 82.337263-207.29523 161.699776-300.550147 34.926464-41.10314 74.008574-63.744813 110.042255-63.744813 37.171598 0 65.372893 24.409946 75.43711 65.298192l0.221034 0.899486 54.06229 557.12985c3.63069 28.569686-3.450589 53.3163-21.048385 73.55525-36.702923 42.213427-117.864408 63.640436-248.079098 65.475224C187.816085 969.545784 165.472194 977.095737 146.093844 977.095737zM351.953376 217.873146c-27.990494 0-60.996213 19.950378-90.553389 54.735625C107.829356 453.06268 53.119313 660.985196 98.783329 890.606921l0.11461 0.665149c5.777587 39.971363 21.655206 60.238966 47.190789 60.241013 0.001023 0 0.004093 0 0.005117 0 15.33015 0 34.177404-6.886851 56.019875-20.47124l3.036149-1.889023 3.575432-0.039909c122.82028-1.388627 201.077621-20.47431 232.596476-56.725956 12.817933-14.742772 17.71036-32.310893 14.954597-53.707203l-0.045025-0.399089-53.899584-555.450604C394.918933 233.82956 377.0561 217.873146 351.953376 217.873146z" p-id="5073"></path><path d="M744.014726 518.615675c-85.249593-29.176506-155.854651-80.468706-209.855542-152.451134l-2.544963-3.393283-0.014326-4.241604c-0.349971-107.143229 6.100952-208.28886 19.171642-300.626895l25.330922 3.585665c-12.727882 89.903589-19.09387 188.349739-18.930141 292.687062 50.529837 66.039066 116.15651 113.207341 195.127096 140.234905L744.014726 518.615675z" p-id="5074"></path><path d="M749.299079 604.456738c-90.310865-29.208229-172.996053-76.948533-245.75824-141.894707l17.036002-19.085684c70.089311 62.560848 149.691277 108.533902 236.594533 136.639007L749.299079 604.456738z" p-id="5075"></path><path d="M877.907179 977.077318c-19.384489 0-41.730427-7.54893-66.462714-22.446221-130.205481-1.822508-211.363895-23.245424-248.073982-65.460898-17.602913-20.24202-24.686239-44.99682-21.054525-73.573669l54.061266-557.127803 0.222057-0.899486c10.06524-40.889269 38.266535-65.301262 75.43711-65.301262 36.036751 0 75.119885 22.649859 110.050442 63.777559 79.354326 93.244684 133.7584 194.361663 161.693636 300.530704 27.91784 106.101503 30.138414 220.044602 6.601348 338.675466-3.540639 24.205285-10.869558 43.487444-21.784142 57.31231C915.935284 968.600249 898.407072 977.077318 877.907179 977.077318zM621.659027 262.811638l-53.918004 555.652196-0.025583 0.198521c-2.755764 21.403472 2.137687 38.97671 14.960737 53.722552 31.524994 36.253692 109.779266 55.333236 232.589312 56.710606l3.576455 0.039909 3.036149 1.889023c21.841447 13.583366 40.692794 20.47124 56.030108 20.47124 25.543769 0 41.424458-20.268626 47.204092-60.241013l0.113587-0.664126c45.644573-229.618655-9.070586-437.534008-162.629961-617.972567-29.563316-34.80776-62.568011-54.766324-90.559529-54.766324C646.93469 217.850633 629.071857 233.80807 621.659027 262.811638z" p-id="5076"></path></svg>
+                    肺安保
+                </div>
+                {{#if this.submenu.fabSubmenu}}
+                    <div class="submenu">
+                        <ul>
+                            <li>
+                                {{#if (eq this.router.currentRouteName "fabposts")}}
+                                    {{#link-to "posts" (query-params type=null author=null tag=null order=null) classNames="active" data-test-nav="posts"}}{{svg-jar "content"}}Posts{{/link-to}}
+                                {{else}}
+                                    {{#link-to "posts" data-test-nav="posts"}}{{svg-jar "content"}}Posts{{/link-to}}
+                                {{/if}}
+                            </li>
+                            <li>
+                                {{!-- clicking the Content link whilst on the content screen should reset the filter --}}
+                                {{#if (eq this.router.currentRouteName "fabpages")}}
+                                    {{#link-to "pages" (query-params type=null author=null tag=null order=null) classNames="active" data-test-nav="pages"}}{{svg-jar "page"}}Pages{{/link-to}}
+                                {{else}}
+                                    {{#link-to "pages" data-test-nav="pages"}}{{svg-jar "page"}}Pages{{/link-to}}
+                                {{/if}}
+                            </li>
+                        </ul>
+                    </div>
+                {{/if}}
+            </li>
             <li class="gh-nav-list-new relative">
                 {{!-- clicking the Content link whilst on the content screen should reset the filter --}}
                 {{#if (eq this.router.currentRouteName "posts")}}
