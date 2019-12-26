@@ -11,7 +11,8 @@ export default AuthenticatedRoute.extend({
         type: {refreshModel: true},
         author: {refreshModel: true},
         tag: {refreshModel: true},
-        order: {refreshModel: true}
+        order: {refreshModel: true},
+        app: {refreshModel: true}
     },
 
     modelName: 'post',

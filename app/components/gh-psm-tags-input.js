@@ -6,6 +6,7 @@ import {sort} from '@ember/object/computed';
 export default Component.extend({
 
     store: service(),
+    router: service(),
 
     // public attrs
     post: null,
@@ -31,6 +32,17 @@ export default Component.extend({
         this.store.query('tag', {limit: 'all'});
         this.set('_availableTags', this.store.peekAll('tag'));
     },
+    didInsertElement() {
+        let {type, app} = this.router.currentRoute.queryParams;
+        let tag;
+        if (type === 'create' && app) {
+            tag = this.availableTags.filter((val) => {
+                console.log(val.slug === `hash-${app}`);
+                return val.slug === `hash-${app}`;
+            })[0];
+            this.set('post.tags', [tag]);
+        }
+    },
 
     actions: {
         matchTags(tagName, term) {
@@ -50,7 +62,6 @@ export default Component.extend({
                     tag.destroyRecord();
                 }
             });
-
             // update tags
             return this.set('post.tags', newTags);
         },

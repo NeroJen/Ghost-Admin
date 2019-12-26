@@ -48,6 +48,12 @@ export default Component.extend(ShortcutsMixin, {
             wxSubmenu: false,
             fabSubmenu: false
         };
+        this.router.on('routeDidChange', () => {
+            let app = this.router.currentRoute.queryParams.app;
+            if (app) {
+                set(this.submenu, `${app}Submenu`, true);
+            }
+        });
     },
 
     // the menu has a rendering issue (#8307) when the the world is reloaded
@@ -89,7 +95,6 @@ export default Component.extend(ShortcutsMixin, {
                 set(this.submenu, val, false);
             });
             set(this.submenu, value, true);
-            console.log(this.router);
         }
     },
 

@@ -25,7 +25,6 @@ Router.map(function () {
 
     this.route('posts');
     this.route('pages');
-
     this.route('editor', function () {
         this.route('new', {path: ':type'});
         this.route('edit', {path: ':type/:post_id'});

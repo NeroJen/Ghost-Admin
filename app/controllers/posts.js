@@ -37,7 +37,7 @@ export default Controller.extend({
     session: service(),
     store: service(),
 
-    queryParams: ['type', 'author', 'tag', 'order'],
+    queryParams: ['type', 'author', 'tag', 'order', 'app'],
 
     type: null,
     author: null,

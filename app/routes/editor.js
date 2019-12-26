@@ -14,7 +14,10 @@ export default AuthenticatedRoute.extend(ShortcutsRoute, {
     notifications: service(),
     userAgent: service(),
     ui: service(),
-
+    queryParams: {
+        app: {refreshModel: true},
+        type: {refreshModel: true}
+    },
     classNames: ['editor'],
     shortcuts: generalShortcuts,
 

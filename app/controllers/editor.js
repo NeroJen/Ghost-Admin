@@ -92,6 +92,7 @@ export default Controller.extend({
 
     /* public properties -----------------------------------------------------*/
 
+    queryParams: ['type', 'app'],
     infoMessage: null,
     leaveEditorTransition: null,
     shouldFocusEditor: false,
