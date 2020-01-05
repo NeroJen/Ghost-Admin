@@ -170,24 +170,24 @@
                     </div>
                 {{/if}}
             </li>
-           <!-- <li class="gh-nav-list-new relative">
+          <li class="gh-nav-list-new relative">
                 {{!-- clicking the Content link whilst on the content screen should reset the filter --}}
-                {{!-- {{#if (eq this.router.currentRouteName "posts")}}
+                 {{#if (eq this.router.currentRouteName "posts")}}
                     {{#link-to "posts" (query-params type=null author=null tag=null order=null) classNames="active" data-test-nav="posts"}}{{svg-jar "content"}}Posts{{/link-to}}
                 {{else}}
                     {{#link-to "posts" data-test-nav="posts"}}{{svg-jar "content"}}Posts{{/link-to}}
                 {{/if}}
                 {{#link-to "editor.new" "post" classNames="gh-secondary-action gh-nav-new-post" alt="New story" data-test-nav="new-story"}}<span>{{svg-jar "add-stroke"}}</span>{{/link-to}}
-                --}}
+
             </li>
             <li>
                 {{!-- clicking the Content link whilst on the content screen should reset the filter --}}
-               {{!-- {{#if (eq this.router.currentRouteName "pages")}}
+                {{#if (eq this.router.currentRouteName "pages")}}
                     {{#link-to "pages" (query-params type=null author=null tag=null order=null) classNames="active" data-test-nav="pages"}}{{svg-jar "page"}}Pages{{/link-to}}
                 {{else}}
                     {{#link-to "pages" data-test-nav="pages"}}{{svg-jar "page"}}Pages{{/link-to}}
-                {{/if}}--}}
-            </li> -->
+                {{/if}}
+            </li>
             {{#if (gh-user-can-admin this.session.user)}}
                 <li>{{#link-to "tags" data-test-nav="tags"}}{{svg-jar "tag"}}Tags{{/link-to}}</li>
             {{/if}}

@@ -73,7 +73,9 @@ export default AuthenticatedRoute.extend({
 
             let perPage = this.perPage;
             let paginationSettings = assign({perPage, startingPage: 1}, paginationParams, queryParams);
-
+            if (params.app) {
+                paginationSettings.filter += `+tag:hash-${params.app}`;
+            }
             return this.infinity.model(this.modelName, paginationSettings);
         });
     },
